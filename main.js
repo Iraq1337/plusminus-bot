@@ -34,7 +34,10 @@ client.on('message', msg =>{
             msg.channel.send(new Discord.MessageEmbed().setColor(randomcolor()).setDescription(`Successfully unmuted ${user}!`).setTitle('Unmute').setTimestamp(new Date))
         })
     }
-
+    else if(msg.content == '!gay')
+    {
+        msg.channel.send(`${msg.author} is ${Math.floor(Math.random() * 100)}% gay!`)
+    }
 })
 
 client.login(config.token)
