@@ -7,9 +7,17 @@ const randomcolor = require('randomcolor')
 //#endregion
 
 //#region main
-
+client.on('ready', () => {
+    client.user.setActivity(client.guilds.cache.find(nigger => nigger.name === "plusminus private").roles.cache.find(nigger => nigger.name ==="users").members.size + ' users', {
+        type: "WATCHING"
+    });
+})
 client.on('message', msg =>{
-    if(!msg.author.id == '509073024503250944'||!msg.author.id == '867824566155870289') return; //check if author is Iraq or OOM
+    client.user.setActivity(client.guilds.cache.find(nigger => nigger.name === "plusminus private").roles.cache.find(nigger => nigger.name ==="users").members.size + ' users', {
+        type: "WATCHING"
+    });
+    if(!msg.author.id == '509073024503250944'||!msg.author.id == '867824566155870289') return; 
+    if(!msg.member.hasPermission('ADMINISTRATOR')) return;
     if(msg.content == '!nuke')
     {
         msg.channel.clone().then(new_channel =>{
@@ -18,6 +26,19 @@ client.on('message', msg =>{
             msg.channel.delete();
         })
     }  
+    else if(msg.content == '!mutes')
+    {
+        var yes = msg.guild.roles.cache.find(nig => nig.name == "muted").members.map(lmao => lmao.user.id).toString().replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!').replace(',','>\n<@!')//OOM Please make this better I just didn't find a better fix.
+        var result = '<@!' + yes + '>';
+        result.replace(',','>\n<@!');
+        result.replace(',','sas')
+        msg.channel.send(new Discord.MessageEmbed()
+            .setColor(randomcolor())
+            .setTitle('List of muted People')
+            .setDescription(result)
+            .setTimestamp(new Date))
+        
+    }
     else if(msg.content.startsWith('!mute'))
     {
         var user = msg.mentions.members.first();
