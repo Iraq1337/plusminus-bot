@@ -25,11 +25,7 @@ client.on('message', msg =>{
         user.roles.add(role)
         msg.channel.send(new Discord.MessageEmbed().setColor(randomcolor()).setDescription(`Successfully muted ${user}!`).setTitle('Mute').setTimestamp(new Date))
     }
-    else if(msg.content == '!mutes')
-    {
-        var ppl = msg.guild.roles.cache.get('874661566656684082').members.map().id
-        msg.reply('RESULT: ' + ppl)
-    }
+
 
 })
 
