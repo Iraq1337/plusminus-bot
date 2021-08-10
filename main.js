@@ -2,7 +2,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
-const imports = require('./function')
+const imports = require('./imports')
+const mute = require('./mute')
 //#endregion
 //#region main
 client.on('ready', () => {
@@ -10,6 +11,7 @@ client.on('ready', () => {
 })
 client.on('message', msg =>{
     client.user.setActivity(client.guilds.cache.find(nigger => nigger.name === "plusminus private").roles.cache.find(nigger => nigger.name ==="users").members.size + ' users', {type: "WATCHING"}); //long long line...
+    
     if(msg.member == null||!msg.member.hasPermission('ADMINISTRATOR')) return;
     
     if(msg.content == '!nuke') imports.nuke(msg); //nuke
