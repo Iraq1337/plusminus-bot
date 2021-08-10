@@ -22,10 +22,18 @@ client.on('message', msg =>{
     {
         var user = msg.mentions.members.first();
         var role = msg.guild.roles.cache.find(nigger => nigger.name === "muted")
-        user.roles.add(role)
+        user.roles.add(role).then( () => {
         msg.channel.send(new Discord.MessageEmbed().setColor(randomcolor()).setDescription(`Successfully muted ${user}!`).setTitle('Mute').setTimestamp(new Date))
+        })
     }
-
+    else if(msg.content.startsWith('!unmute'))
+    {
+        var user = msg.mentions.members.first();
+        var role = msg.guild.roles.cache.find(nigger => nigger.name === "muted")
+        user.roles.remove(role).then( () => {
+            msg.channel.send(new Discord.MessageEmbed().setColor(randomcolor()).setDescription(`Successfully unmuted ${user}!`).setTitle('Unmute').setTimestamp(new Date))
+        })
+    }
 
 })
 
