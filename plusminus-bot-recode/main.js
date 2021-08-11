@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
 const imports = require('./imports')
-
+const axios = require('axios');
 client.on('ready', () => {
     client.user.setStatus('dnd');
 })
@@ -13,7 +13,7 @@ client.on('message', msg =>{
     
     else if(msg.content == ('!commands')) imports.commands(msg);
     
-    else if(msg.content == '!mutes') imports.mutes(msg); // get muted list
+    else if(msg.content == '!mutes') {imports.mutes(msg); return;}// get muted list
     //publicly accessible commands go before this message
     if(msg.member == null||!msg.member.hasPermission('ADMINISTRATOR')) return;
     
@@ -32,8 +32,8 @@ client.on('message', msg =>{
 })
 
 client.on('guildMemberAdd', member => {
-    client.guilds.cache.find(plusminus => plusminus.name == "plusminus private")
-
+    if(member.guild.id != "867712371262488587") return;
+    imports.autorole(member, client)
 })
 client.login(config.token)
 

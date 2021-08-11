@@ -6,7 +6,9 @@ const lock = require('./lock')
 const unlock = require('./unlock')
 const gay = require('./gay')
 const commands = require('./commands')
+const autorole = require('./autorole')
 
+module.exports.autorole = autorole.autorole;
 module.exports.commands = commands.commands;
 module.exports.unlock = unlock.unlock;
 module.exports.lock = lock.lock;
