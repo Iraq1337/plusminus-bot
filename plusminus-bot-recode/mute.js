@@ -17,7 +17,7 @@ function mute(msg)
         {
             setTimeout(() => {
                 user.roles.remove(role)
-                msg.channel.send(`Unmuted: <@!${user}>, mute: expired.`)
+                msg.channel.send(`Unmuted: ${user}, mute: expired.`)
             }, args[1]*60*60*1000);
         }
     }

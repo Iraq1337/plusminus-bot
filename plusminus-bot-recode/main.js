@@ -9,13 +9,16 @@ client.on('ready', () => {
 })
 client.on('message', msg =>{
     client.user.setActivity(client.guilds.cache.find(nigger => nigger.name === "plusminus private").roles.cache.find(nigger => nigger.name ==="users").members.size + ' users', {type: "WATCHING"}); //long long line...
-    if(msg.content.startsWith('!gay')) msg.channel.send(`${msg.mentions.members.first()||msg.author} is ${Math.floor(Math.random() * 100)}% gay.`)
+    if(msg.content.startsWith('!gay')) imports.gay(msg);
+    
+    else if(msg.content == ('!commands')) imports.commands(msg);
+    
+    else if(msg.content == '!mutes') imports.mutes(msg); // get muted list
     //publicly accessible commands go before this message
     if(msg.member == null||!msg.member.hasPermission('ADMINISTRATOR')) return;
     
     if(msg.content == '!nuke') imports.nuke(msg); //nuke
 
-    else if(msg.content == '!mutes') imports.mutes(msg); // get muted list
 
     else if(msg.content.startsWith('!mute')) imports.mute(msg); // mute person
     
@@ -23,9 +26,15 @@ client.on('message', msg =>{
   
     else if(msg.content.startsWith('!lock')) imports.lock(msg); //lock channel
     
-    else if(msg.content.startsWith('!unlock')) imports.unlock(msg);
+    else if(msg.content.startsWith('!unlock')) imports.unlock(msg); //unlock channel
+    
+
 })
 
+client.on('guildMemberAdd', member => {
+    client.guilds.cache.find(plusminus => plusminus.name == "plusminus private")
+
+})
 client.login(config.token)
 
 
