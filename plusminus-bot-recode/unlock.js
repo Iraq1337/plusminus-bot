@@ -4,7 +4,7 @@ function unlock(msg)
 {
     var channel = msg.mentions.channels.first()
     var user = msg.guild.roles.cache.find(nigger => nigger.name === "users")
-    msg.channel.updateOverwrite(user,{ 'SEND_MESSAGES': true})
+    msg.channel.updateOverwrite(user,{ 'SEND_MESSAGES': null})
     msg.channel.send(new Discord.MessageEmbed()
         .setColor(randomcolor())
         .setDescription(`Successfully unlocked ${msg.channel}!`)

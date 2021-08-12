@@ -7,7 +7,9 @@ const unlock = require('./unlock')
 const gay = require('./gay')
 const commands = require('./commands')
 const autorole = require('./autorole')
+const resethwid = require('./resethwid')
 
+module.exports.resethwid = resethwid.resethwid;
 module.exports.autorole = autorole.autorole;
 module.exports.commands = commands.commands;
 module.exports.unlock = unlock.unlock;

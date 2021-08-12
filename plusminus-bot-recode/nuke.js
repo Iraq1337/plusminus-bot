@@ -8,4 +8,8 @@ function nuke(msg)
         msg.channel.delete();
     })
 }
+function sixhournuke(client)
+{
+
+}
 module.exports.nuke = nuke;
