@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const randomcolor = require('randomcolor');
-const axios = require('axios');IDBKeyRangeonegrit
+const axios = require('axios');
 function autorole(member, client)
 {
     const options = {
