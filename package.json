@@ -1,0 +1,8 @@
+{
+  "license" : "GPL-3.0",
+  "scripts": {
+  "start": "node index.js",
+  "build": "ng build",
+  "heroku-postbuild": "ng build --prod"
+}
+}
